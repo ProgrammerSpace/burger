@@ -3,15 +3,16 @@ var connection = require("./connection.js");
 
 // define orm
 var orm = {
-    selectAll: function (tableName) {
+    selectAll: function (tableName, cb) {
         console.log("In orm.js");
         var queryString = "SELECT * FROM ??";
         connection.query(queryString, [tableName], function (err, result) {
             if (err) throw err;
             console.log(result);
+            cb(result);
         });
     },
-    insertOne: function (tableName, insertItem) {
+    insertOne: function (tableName, insertItem, cb) {
         var queryString = "INSERT INTO ?? SET ?";
 
         console.log(queryString);
@@ -19,9 +20,10 @@ var orm = {
         connection.query(queryString, [tableName, { burger_name: insertItem }], function (err, result) {
             if (err) throw err;
             console.log(result);
+            cb(result);
         });
     },
-    UpdateOne: function (tableName, updateValue, updateCondition) {
+    UpdateOne: function (tableName, updateValue, updateCondition, cb) {
         var queryString = "UPDATE ?? SET ? WHERE ?"
 
         console.log(queryString);
@@ -32,6 +34,7 @@ var orm = {
             function (err, result) {
                 if (err) throw err;
                 console.log(result);
+                cb(result);
             });
     }
 };

@@ -5,6 +5,7 @@ var burger = {
     all: function (cb) {
         console.log("In burger.js");
         orm.selectAll("burgers", function (res) {
+            console.log("Returned data: \n" + res);
             cb(res);
         });
     },

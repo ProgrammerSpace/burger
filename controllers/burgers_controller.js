@@ -5,7 +5,7 @@ var router = express.Router();
 // Import the model
 var burger = require("../models/burger.js");
 
-router.get("/burgers", function (req, res) {
+router.get("/", function (req, res) {
     console.log("In burgers_controller.js");
     burger.all(function (data) {
         var hbsObject = {
