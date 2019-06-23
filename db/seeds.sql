@@ -1,5 +1,5 @@
 insert into 
-burgers (burger_name)
+burger (burger_name)
 values("veggie burger"),
 ("salmon burger"),
 ("cheese burger");
