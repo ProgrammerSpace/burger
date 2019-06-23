@@ -1,9 +1,15 @@
 <div class="container">
-    <div class="row">
-        <h1>Burgers!</h1>
+    <div class="row text-center">
+        <div class="col-12">
+            <h1>Burgers!</h1>
+        </div>
+        <div class="col-12">
+            <img src="/assets/images/burger.jpg" alt="burgerImg">
+        </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
+            <hr>
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
@@ -20,11 +26,19 @@
                     <input type="text" id="bgr" name="name">
                 </div>
 
-                <button type="submit">Add Burger</button>
+                <button id="add" type="submit">Add Burger</button>
             </form>
+            <br>
         </div>
-        <div class="col-6 text-center">
-            check
+        <div class="col-5 text-center">
+            <hr>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> done devoured=true}}
+                {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>
